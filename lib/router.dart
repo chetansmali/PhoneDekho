@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:phonedekho/common/widget/bottom_bar.dart';
 import 'package:phonedekho/features/admin/screens/add_product_screen.dart';
 import 'package:phonedekho/features/auth/screen/auth_screen.dart';
+import 'package:phonedekho/features/home/screens/category_deals_screen.dart';
 import 'package:phonedekho/features/home/screens/home_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings){
@@ -29,6 +30,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings){
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const AddProductScreen(),
+      );
+
+    case CategoryDealsScreen.routeName :
+      var catergory = routeSettings.arguments as String ;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) =>  CategoryDealsScreen(
+          category: catergory,
+        ),
       );
 
     default : return MaterialPageRoute(
